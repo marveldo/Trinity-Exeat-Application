@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+::-webkit-scrollbar {
+    width: 0px; 
+  }
+
+body{
+    scrollbar-width: 0px;
+
+}
+  
+@media screen and (orientation: landscape) and (max-width: 950px) {
+   .logo{
+        width: 48px;
+    }
+    .header{
+        font-size: 25px;
+    }
+    .divslider{
+        padding: 0;
+    }
+    .divslider h1{
+        padding: 0;
+        font-size: 25px;
+    }
+    .exeat img{
+        width : 31px
+    }
+    .bar img {
+        width: 30px;
+    }
+    .newasa{
+        padding-top: 1.5rem/* 40px */;
+        padding-bottom: 1.5rem/* 40px */;
+    }
+    
+    
+  }
+
