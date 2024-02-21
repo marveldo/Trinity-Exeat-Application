@@ -3,11 +3,15 @@ from rest_framework.response import Response
 from rest_framework.generics import GenericAPIView,CreateAPIView
 from .serializers import Codeserializer,Userserializer
 from .models import Users
-from .utils import Confirm_student_code, Confirm_admin_code
-from rest_framework_simplejwt.tokens import AccessToken, RefreshToken
+from .utils import Confirm_student_code, Confirm_admin_code, CustomizingAccess, CustomizingRefresh
 from rest_framework.renderers import JSONRenderer
+from rest_framework_simplejwt.views import TokenObtainPairView
+from .serializers import MyTokenObtainPairSerializer
 
 # Create your views here.
+
+class UserLogin(TokenObtainPairView):
+    serializer_class = MyTokenObtainPairSerializer
 
 class Confirmregistercodes(GenericAPIView):
 
@@ -38,18 +42,12 @@ class RegisterUser(CreateAPIView):
             code = serializer.validated_data['code']
             self.perform_create(code, serializer)
             user = serializer.instance
-            refresh_token = RefreshToken.for_user(user)
-            access_token = AccessToken.for_user(user)
+            refresh_token = CustomizingRefresh.for_user(user)
+            
+            access_token = CustomizingAccess.for_user(user)
             res = {
-                'response' : "ok",
-                "status" : "success",
-                'fullname': user.fullname,
-                "matric_no" : user.matric_no,
-                "email" : user.email,
-                "is_admin": user.is_admin,
-                "is_staff" : user.is_staff,
-                "refresh_token" : str(refresh_token),
-                "access_token": str(access_token)
+                "refresh" : str(refresh_token),
+                "access": str(access_token)
             }
             return Response(res)
 

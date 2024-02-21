@@ -1,9 +1,25 @@
 from rest_framework import serializers
 from .models import Users
-
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 class Codeserializer(serializers.Serializer):
     code = serializers.CharField(required = True)
+    
+class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
+
+        
+        token['fullname'] = user.fullname
+        token['matric_no'] = user.matric_no
+        token['email'] = user.email 
+        token['is_staff'] = user.is_staff
+        token['is_admin'] = user.is_admin
+
+        
+
+        return token
     
 
 

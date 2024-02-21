@@ -1,4 +1,32 @@
+from rest_framework_simplejwt.tokens import AccessToken, Token, RefreshToken
 
+
+
+class CustomizingAccess(AccessToken):
+
+    @classmethod
+    def for_user(cls, user) -> Token:
+        token = super().for_user(user)
+        token['fullname'] = user.fullname
+        token['matric_no'] = user.matric_no
+        token['email'] = user.email
+        token['is_staff'] = user.is_staff
+        token['is_admin'] = user.is_admin
+
+        return token
+    
+class CustomizingRefresh(RefreshToken):
+
+    @classmethod
+    def for_user(cls, user) -> Token:
+        token =  super().for_user(user)
+        token['fullname'] = user.fullname
+        token['matric_no'] = user.matric_no
+        token['email'] = user.email
+        token['is_staff'] = user.is_staff
+        token['is_admin'] = user.is_admin
+
+        return token
 
 def Confirm_student_code(code):
     try:
