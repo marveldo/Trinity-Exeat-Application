@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Users
+from .models import Users,ExeatRequest
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 class Codeserializer(serializers.Serializer):
@@ -16,13 +16,9 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         token['email'] = user.email 
         token['is_staff'] = user.is_staff
         token['is_admin'] = user.is_admin
-
-        
-
+        token['level'] = user.level
+        token['course_of_study'] = user.course_of_study
         return token
-    
-
-
 class Userserializer(serializers.ModelSerializer):
     
     code = serializers.CharField(required = True)
@@ -36,6 +32,14 @@ class Userserializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
         return user
+
+    
+class CreateExeatSerializer(serializers.ModelSerializer):
+    class Meta :
+        model = ExeatRequest
+        exclude = ['pending', 'accepted', 'user']
+    
+
 
 
 

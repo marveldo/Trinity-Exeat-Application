@@ -10,8 +10,9 @@ import { Login } from "./Components/Login";
 import { Home } from "./Components/Home";
 import { useDispatch } from "react-redux";
 import { RegisterationAuthentication } from "./reducers/Authreducer/Auth";
-import { ProtectedRoute , AllreadyLoggedin} from "./utils/protectedrouting";
+import { ProtectedRoute , AllreadyLoggedin , ISNotAdmin} from "./utils/protectedrouting";
 
+import { Mainrequest } from "./Components/Exrequest";
 
 export const App = () =>{
    const isvalid = JSON.parse(localStorage.getItem('auttokens'))
@@ -35,6 +36,7 @@ export const App = () =>{
         <Route path="/admin" element={<AllreadyLoggedin><Adminregister/></AllreadyLoggedin>}/>
         <Route path="/Login" element={<AllreadyLoggedin><Login/></AllreadyLoggedin>}/>
         <Route path="/home" element={<ProtectedRoute><Home/></ProtectedRoute>}/>
+        <Route path='request/exeat' element={<ISNotAdmin><Mainrequest/></ISNotAdmin>}/>
         <Route path="*" element={<Navigate to="/" replace/>}/>
 
       </Routes>

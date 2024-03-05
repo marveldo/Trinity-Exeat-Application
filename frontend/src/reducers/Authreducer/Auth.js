@@ -1,4 +1,4 @@
-import { AuthregisterationLogin, LoginUser } from "./Authconstants"
+import { AuthregisterationLogin, LoginUser,LogoutUser } from "./Authconstants"
 import { jwtDecode } from "jwt-decode"
 
 
@@ -20,4 +20,10 @@ export const Logindispatch = (data) => {
             details: jwtDecode(data.access)
         }
     }
+}
+
+export const Logoutdispatch = () => {
+   return {
+      type : LogoutUser
+   }
 }

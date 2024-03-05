@@ -12,6 +12,8 @@ class CustomizingAccess(AccessToken):
         token['email'] = user.email
         token['is_staff'] = user.is_staff
         token['is_admin'] = user.is_admin
+        token['level'] = user.level
+        token['course_of_study'] = user.course_of_study
 
         return token
     
@@ -25,6 +27,8 @@ class CustomizingRefresh(RefreshToken):
         token['email'] = user.email
         token['is_staff'] = user.is_staff
         token['is_admin'] = user.is_admin
+        token['level'] = user.level
+        token['course_of_study'] = user.course_of_study
 
         return token
 
