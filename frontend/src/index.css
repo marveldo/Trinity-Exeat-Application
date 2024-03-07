@@ -29,6 +29,9 @@ body{
     .exeat img{
         width : 31px
     }
+    .bar{
+        margin-bottom: 10px;
+    }
     .bar img {
         width: 30px;
     }
@@ -36,7 +39,29 @@ body{
         padding-top: 1.5rem/* 40px */;
         padding-bottom: 1.5rem/* 40px */;
     }
-    
+    .dashboardlanres{
+        display: flex;
+        flex-direction: column;
+    }
+    .resfirstdiv{
+        height:80%;
+    }
+    .resbluepic{
+        width:152px;
+        height: 140px;
+        
+        
+    }
+    .resfont{
+        font-size: 15px;
+    }
+    .landresdiv{
+        width :50%;
+    }
+    .smallresdiv{
+        width: 35px;
+        height : 30px
+    }
     
   }
 

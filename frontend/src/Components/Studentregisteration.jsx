@@ -229,8 +229,8 @@ export const Studentregister = () =>{
     </div>
     
     <div className="absolute top-0 right-0 h-[35vh] p-5">
-       <div className=" bg-[#83D0FC] flex justify-center items-center top-3 right-5 text-center sm:p-[60px]   rounded-[50%] max-[620px]:h-[170px] max-[620px]:w-[182px] w-[270px] h-[250px] ">
-         <div className="sm:text-[27px] text-[20px] w-[100%] ">
+       <div className=" bg-[#83D0FC] flex justify-center items-center top-3 right-5 text-center sm:p-[60px]   rounded-[50%] max-[620px]:h-[170px] max-[620px]:w-[182px] w-[270px] h-[250px] resbluepic ">
+         <div className="sm:text-[27px] text-[20px] w-[100%] resfont">
          <h1>
              Student 
          </h1>
@@ -279,10 +279,10 @@ export const Studentregister = () =>{
     <div className="absolute top-0 right-0 h-[35vh] py-2 px-3 flex">
 
       <div className="flex justify-start items-start">
-        <div className=" bg-[#83D0FC] rounded-[50%] min-[620px]:h-[45px] min-[620px]:w-[50px] w-[35px] h-[30px] mt-2"></div>
+        <div className=" bg-[#83D0FC] rounded-[50%] min-[620px]:h-[45px] min-[620px]:w-[50px] w-[35px] h-[30px] smallresdiv mt-2"></div>
      </div>
-       <div className=" bg-[#83D0FC] flex justify-center items-center top-3 right-5 text-center sm:p-[60px]   rounded-[50%] max-[620px]:h-[150px] max-[620px]:w-[162px] w-[270px] h-[250px] ">
-         <div className="sm:text-[27px] text-[20px] w-[100%] ">
+       <div className=" bg-[#83D0FC] flex justify-center items-center top-3 right-5 text-center sm:p-[60px]   rounded-[50%] max-[620px]:h-[150px] max-[620px]:w-[162px] w-[270px] h-[250px] resbluepic">
+         <div className="sm:text-[27px] text-[20px] w-[100%] resfont">
          <h1>
              Student 
          </h1>
@@ -294,7 +294,7 @@ export const Studentregister = () =>{
     </div>
 
 
-    <div className=" flex items-center w-[100%] justify-center min-[1024px]:w-[55%]  text-center h-[100%] ">
+    <div className=" flex items-center w-[100%] justify-center min-[1024px]:w-[55%] landresdiv  text-center h-[100%] ">
         <form className="flex items-center w-[100%] pt-[120px]" onSubmit={SubmitForm} >
          <div className="w-[100%] pt-[90px]">
             <div className="w-[100%] flex justify-center relative">

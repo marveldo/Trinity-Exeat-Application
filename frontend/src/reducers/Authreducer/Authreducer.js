@@ -1,4 +1,4 @@
-import { AuthregisterationLogin,LoginUser,LogoutUser } from "./Authconstants";
+import { AuthregisterationLogin,LoginUser,LogoutUser} from "./Authconstants";
 
 const Initialstate = {
     access_token : '',
@@ -59,6 +59,7 @@ export const Authreducer = (state = Initialstate , action) => {
                 course_of_study: '',
                 authenticated : false
              })
+        
         default :
            return state
 

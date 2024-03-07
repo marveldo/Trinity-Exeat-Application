@@ -236,7 +236,7 @@ export const Mainrequest = () => {
             </div>
             
 
-            <div className={`mt-10 pt-11  w-[100%] flex justify-center text-center relative overflow-x-hidden overflow-y-auto`}>
+            <div className={`mt-10 pt-11  w-[100%] flex justify-center text-center relative overflow-x-hidden overflow-y-hidden`}>
                    
                     <div className={`w-[70%] sm:w-[55%] ${stages.stage1 ? '' : 'absolute left-[-120%] top-0 '} ${slideout ? 'animate-upgradedslideout' : ''}`}>
                         <div className="relative">
@@ -258,7 +258,7 @@ export const Mainrequest = () => {
                         </div>
 
                         <div className="relative py-3">
-                            <button className="bg-[#23B0FF] rounded-lg py-3 px-7" onClick={Changefirstdiv} >Next</button>
+                            <button className="bg-[#23B0FF] rounded-lg py-3 px-7 hover:-translate-y-3" onClick={Changefirstdiv} >Next</button>
                             <div className="absolute right-[-15%] top-[-60%] bg-[#83D0FC] rounded-[50%] min-[620px]:h-[25px] min-[620px]:w-[30px] w-[25px] h-[20px] mt-2"></div>
                         </div>
                     </div>
@@ -293,7 +293,7 @@ export const Mainrequest = () => {
                         </div>
 
                         <div className="relative py-3">
-                            <button className="bg-[#23B0FF] rounded-lg py-3 px-7" onClick={Changeseconddiv}>Next</button>
+                            <button className="bg-[#23B0FF] rounded-lg py-3 px-7 hover:-translate-y-3" onClick={Changeseconddiv}>Next</button>
                             <div className="absolute right-[-15%] top-[-60%] bg-[#83D0FC] rounded-[50%] min-[620px]:h-[25px] min-[620px]:w-[30px] w-[25px] h-[20px] mt-2"></div>
                         </div>
                     </div>
@@ -329,7 +329,7 @@ export const Mainrequest = () => {
                         </div>
 
                         <div className="relative ">
-                            <button className={`bg-[#23B0FF] rounded-lg py-3 px-7 ${success || failed ? 'hidden' : ''}`} onClick={SubmitExeatrequest} disabled={isloading}>{isloading ? loadingicon : 'Submit' }</button>
+                            <button className={`bg-[#23B0FF] rounded-lg py-3 px-7 hover:-translate-y-2 ${success || failed ? 'hidden' : ''}`} onClick={SubmitExeatrequest} disabled={isloading}>{isloading ? loadingicon : 'Submit' }</button>
                             <button className={` rounded-lg py-3 px-7 ${success? 'bg-green-400' : 'hidden'}`}>Successful</button>
                             <button className={` rounded-lg py-3 px-7 ${failed? 'bg-red-400' : 'hidden'}`} >{errordetails}</button>
 
