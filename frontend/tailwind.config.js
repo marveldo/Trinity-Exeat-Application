@@ -16,7 +16,8 @@ module.exports = {
         slideoutslower : 'slideout 2s',
         fastslidein : 'slidein 0.8s ',
         upgradedslidein : 'upgradedslidein 1s ease-in-out',
-        upgradedslideout : 'upgradedslideout 1s ease-in-out'
+        upgradedslideout : 'upgradedslideout 1s ease-in-out',
+        increasewidth : 'increasewidth 1s ease-in-out'
         },
        keyframes:{
         fadein: {
@@ -38,6 +39,10 @@ module.exports = {
         upgradedslidein : {
           '0%': {transform : 'translateX(100%)'},
           '100%': {transform : 'translateX(0%)'}
+        },
+        increasewidth :{
+          '0%' : {width : '0%'},
+          '100%': {width : '100%'}
         }
        },
      

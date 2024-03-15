@@ -24,17 +24,21 @@ export const Mainrequest = () => {
         matric_no : authdetails.matric_no,
         level : authdetails.level ? authdetails.level : '',
         course_of_study : authdetails.course_of_study ? authdetails.course_of_study : '',
+        hall : authdetails.hall ? authdetails.hall : '',
         guardians_phonenumber : ``,
         purpose_for_exeat : '',
-        days : ''
+        days : '',
+        destination : '',
     })
     const [submiterror , setsubmiterror] = React.useState({
         
         level : false,
         course_of_study : false,
+        hall : false,
         guardians_phonenumber : false,
         purpose_for_exeat : false,
-        days : false
+        days : false,
+        destination : false,
     })
     const navigate = useNavigate()
 
@@ -64,7 +68,7 @@ export const Mainrequest = () => {
        
        }
     const Changeseconddiv =() => {
-        if (exeatform.level === '' || exeatform.course_of_study === ''){
+        if (exeatform.level === '' || exeatform.course_of_study === '' || exeatform.hall === ''){
           if(exeatform.level === '' ){
                setsubmiterror(prev => {
                 return({
@@ -78,6 +82,15 @@ export const Mainrequest = () => {
                 return({
                     ...prev,
                     course_of_study : true
+
+                })
+            })
+        }
+        if (exeatform.hall === ''){
+            setsubmiterror(prev => {
+                return({
+                    ...prev,
+                    hall : true
 
                 })
             })
@@ -157,9 +170,14 @@ export const Mainrequest = () => {
                 ...prev,
                 guardians_phonenumber : ``,
                 purpose_for_exeat : '',
-                days : ''
+                days : '',
+                destination : '',
             })
            })
+           const timeoutid = setTimeout(()=>{
+            navigate('/home',{replace: true})
+            return () => clearTimeout(timeoutid)
+        },3000)
          }
         else{
           setfailed(true)
@@ -169,7 +187,8 @@ export const Mainrequest = () => {
                 ...prev,
                 guardians_phonenumber : ``,
                 purpose_for_exeat : '',
-                days : ''
+                days : '',
+                destination : '',
             })
            })
          }
@@ -180,7 +199,7 @@ export const Mainrequest = () => {
         
     }
     const SubmitExeatrequest = async() => {
-        if (exeatform.guardians_phonenumber === '' || exeatform.purpose_for_exeat === '' || exeatform.days === ''){
+        if (exeatform.guardians_phonenumber === '' || exeatform.purpose_for_exeat === '' || exeatform.days === ''||  exeatform.destination === ''){
             if(exeatform.guardians_phonenumber === '' ){
                 setsubmiterror(prev => {
                     return({
@@ -203,6 +222,14 @@ export const Mainrequest = () => {
                     return({
                         ...prev,
                         days : true,
+                    })
+                })
+             }
+             if(exeatform.destination === ''){
+                setsubmiterror(prev => {
+                    return({
+                        ...prev,
+                        destination : true,
                     })
                 })
              }
@@ -282,6 +309,25 @@ export const Mainrequest = () => {
                            <p className={`${submiterror.level ? 'text-red-400' : ''}`}>{submiterror.level ? 'Level cannot be empty' : 'Input Level'}</p>
                         </div>
 
+                        <div className="relative flex justify-center">
+                           <div className="absolute left-[-15%] bottom-[-60%] bg-[#83D0FC] rounded-[50%] min-[620px]:h-[25px] min-[620px]:w-[30px] w-[25px] h-[20px] mt-2"></div>
+                           <svg className={`h-11 w-11 text-red-500 absolute top-2 right-[24%] min-[530px]:right-[20%] ${submiterror.level ? '' : 'hidden'}`}  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round">  <circle cx="12" cy="12" r="10" />  <line x1="15" y1="9" x2="9" y2="15" />  <line x1="9" y1="9" x2="15" y2="15" /></svg>
+                           <select name="hall" value={exeatform.hall}  className={`${submiterror.hall ? 'bg-red-400': 'bg-[#AFDEF8]'} mt-1 px-3 py-2 h-[53px]  border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-[70%] rounded-lg sm:text-sm focus:ring-1`} onChange={Handleformchange}>
+                                 <option value=''>Your Hall</option>
+                                 <option value='mary_hall'>Mary</option>
+                                 <option value='joseph_hall'>Joseph</option>
+                                 <option value='daniel_hall'>Daniel</option>
+                                 <option value='esther_hall'>Esther</option>
+                                 <option value='deborah_hall'>Deborah</option>
+                               
+                           </select>
+                           <div className="absolute right-[-15%] top-[-60%] bg-[#83D0FC] rounded-[50%] min-[620px]:h-[25px] min-[620px]:w-[30px] w-[25px] h-[20px] mt-2"></div>
+                        </div>
+                        <div className="mt-2 mb-11 relative">
+                            
+                           <p className={`${submiterror.hall ? 'text-red-400' : ''}`}>{submiterror.level ? 'Hall cannot be empty' : 'Input Hall of residence'}</p>
+                        </div>
+
                         <div className="relative py-3">
                            <div className="absolute left-[-15%] bottom-[-60%] bg-[#83D0FC] rounded-[50%] min-[620px]:h-[25px] min-[620px]:w-[30px] w-[25px] h-[20px] mt-2"></div>
                            <svg className={`h-11 w-11 text-red-500 absolute top-5 right-2 min-[530px]:right-2 ${submiterror.course_of_study ? '' : 'hidden'}`}  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round">  <circle cx="12" cy="12" r="10" />  <line x1="15" y1="9" x2="9" y2="15" />  <line x1="9" y1="9" x2="15" y2="15" /></svg>
@@ -310,6 +356,16 @@ export const Mainrequest = () => {
                         </div>
 
                         <div className="relative  flex justify-center">
+                        <svg className={`h-11 w-11 text-red-500 absolute top-2 right-[25%] min-[530px]:right-[25%] ${submiterror.destination ? '' : 'hidden'}`}  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round">  <circle cx="12" cy="12" r="10" />  <line x1="15" y1="9" x2="9" y2="15" />  <line x1="9" y1="9" x2="15" y2="15" /></svg>
+                           <input type="text" name="destination" value={exeatform.destination} className={`${submiterror.destination ? 'bg-red-400' : 'bg-[#AFDEF8]'} mt-1 px-3 py-2 h-[53px]  border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-[50%] rounded-lg sm:text-sm focus:ring-1`} onChange={Handleformchange} disabled={isloading}/>
+                         
+                        </div>
+                        <div className="mt-2 mb-6 relative">
+                           
+                           <p className={`${submiterror.destination ? 'text-red-400' : ''}`}>{submiterror.destination ? 'A destiantion is needed' : 'Input Destination'}</p>
+                        </div>
+
+                        <div className="relative  flex justify-center">
                            <div className="absolute left-[-15%] bottom-[-30%] bg-[#83D0FC] rounded-[50%] min-[620px]:h-[25px] min-[620px]:w-[30px] w-[25px] h-[20px] mt-2"></div>
                            <svg className={`h-11 w-11 text-red-500 absolute top-5 right-[10%] min-[530px]:right-[10%] ${submiterror.purpose_for_exeat ? '' : 'hidden'}`}  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round">  <circle cx="12" cy="12" r="10" />  <line x1="15" y1="9" x2="9" y2="15" />  <line x1="9" y1="9" x2="15" y2="15" /></svg>
                            <input name="purpose_for_exeat" value={exeatform.purpose_for_exeat} className={`${submiterror.purpose_for_exeat ? 'bg-red-400' : 'bg-[#AFDEF8]'} mt-1 px-3 py-2 h-[85px]  border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-[80%] rounded-lg sm:text-sm focus:ring-1`} onChange={Handleformchange} disabled={isloading}/>
@@ -318,8 +374,10 @@ export const Mainrequest = () => {
                         <div className="mt-2 mb-6 relative">
                         <p className={`${submiterror.purpose_for_exeat ? 'text-red-400' : ''}`}>{submiterror.purpose_for_exeat ? 'A purpose is needed' : 'Input purpose for exeat'}</p>
                         </div>
+
+
                         <div className="relative  flex justify-center">
-                        <svg className={`h-11 w-11 text-red-500 absolute top-2 right-[25%] min-[530px]:right-[25%] ${submiterror.purpose_for_exeat ? '' : 'hidden'}`}  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round">  <circle cx="12" cy="12" r="10" />  <line x1="15" y1="9" x2="9" y2="15" />  <line x1="9" y1="9" x2="15" y2="15" /></svg>
+                        <svg className={`h-11 w-11 text-red-500 absolute top-2 right-[25%] min-[530px]:right-[25%] ${submiterror.days ? '' : 'hidden'}`}  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round">  <circle cx="12" cy="12" r="10" />  <line x1="15" y1="9" x2="9" y2="15" />  <line x1="9" y1="9" x2="15" y2="15" /></svg>
                            <input type="number" name="days" value={exeatform.days} className={`${submiterror.days ? 'bg-red-400' : 'bg-[#AFDEF8]'} mt-1 px-3 py-2 h-[53px]  border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-[50%] rounded-lg sm:text-sm focus:ring-1`} onChange={Handleformchange} disabled={isloading}/>
                          
                         </div>

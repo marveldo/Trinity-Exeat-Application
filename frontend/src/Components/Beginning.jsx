@@ -11,9 +11,7 @@ export const Beginning = () =>{
     const navigate = useNavigate()
 
 
-    const Registerclicked = () => {
-      navigate('/register')
-    }
+    
 
     const Loginclicked = () => {
       navigate('/Login')
@@ -49,14 +47,13 @@ export const Beginning = () =>{
                   <div className="flex items-center justify-center h-[80%] ">
 
                     <div className="sm:w-[50%] w-[80%]  py-3">
-                       <div className="flex mb-10 justify-center bar">
-                         <img src={icon1} className="sm:w-[54px] w-[30px]  me-5" alt="" />
-                         <button className=" transition duration-150 ease-in-out hover:-translate-y-3 rounded-none sm:text-[38px] text-[25px] header  bg-[#FAEFEF66] p-1 text-center" onClick={Loginclicked}>Login</button>
+                    <div className="flex mb-10 justify-center transition duration-150 ease-in-out hover:-translate-y-3" onClick={Loginclicked}>
+                        <div className=" flex items-center bg-[#FAEFEF66]">
+                        <img src={icon1} className="sm:w-[64px] w-[30px] ms-1 sm:p-2" alt="" />
+                        </div>
+                        <button className="  rounded-none sm:text-[38px] text-[25px] header bg-[#FAEFEF66] p-2 text-center border-l-2 border-l-black" >Login</button>
                        </div>
-                       <div className="flex justify-center">
-                       <img src={icon2} className="sm:w-[54px] w-[35px]  me-5" alt="" />
-                         <button className="transition duration-150 ease-in-out hover:-translate-y-3 rounded-none sm:text-[38px]  text-[25px] bg-[#FAEFEF66] header p-1 text-center" onClick={Registerclicked}>Register</button>
-                       </div>
+                  
                     </div>
 
                   </div>

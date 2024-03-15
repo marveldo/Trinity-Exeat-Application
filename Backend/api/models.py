@@ -43,13 +43,22 @@ class Level (models.IntegerChoices):
      TWO_HUNDRED = '200'
      THREE_HUNDRED ='300'
      FOUR_HUNDRED = '400'
-     FIVE_HUNDRED = '500'   
+     FIVE_HUNDRED = '500' 
+
+class Hostels (models.TextChoices):
+    MARY_HALL = 'mary_hall'
+    DEBORAH_HALL = 'deborah_hall'
+    ESTHER_HALL = 'esther_hall'
+    DANIEL_HALL = 'daniel_hall'
+    JOSEPH_HALL = 'joseph_hall'
+       
 
 class Users(AbstractBaseUser,PermissionsMixin):
     fullname = models.CharField(max_length = 120, blank = True , null = True)
     matric_no = models.IntegerField(unique = True , blank= True, null=True)
     level = models.IntegerField(blank = True , null = True , choices = Level.choices)
     course_of_study = models.CharField(max_length = 200, blank = True , null = True)
+    hall = models.CharField(max_length = 120 , blank=True , null = True, choices = Hostels.choices )
     email = models.EmailField(_("email address"), unique=True)
     is_staff = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
@@ -57,7 +66,7 @@ class Users(AbstractBaseUser,PermissionsMixin):
     is_superuser = models.BooleanField(default=False)
 
     USERNAME_FIELD = "matric_no"
-    REQUIRED_FIELDS = ["email"]
+    REQUIRED_FIELDS = ["email",'fullname']
 
     objects = CustomUserManager()
 
@@ -72,13 +81,16 @@ class ExeatRequest(models.Model) :
     matric_no = models.IntegerField(blank= True, null=True)
     level = models.IntegerField(blank = True , null = True , choices = Level.choices)
     course_of_study = models.CharField(max_length = 200, blank = True , null = True)
+    hall = models.CharField(max_length = 120 , blank=True , null = True, choices = Hostels.choices )
     purpose_for_exeat = models.TextField(blank = True ,  null = True)
     guardians_phonenumber = PhoneNumberField(blank = True, null = True)
+    destination = models.TextField(blank = True , null = True)
     days = models.IntegerField(blank = True, null = True)
     pending = models.BooleanField(blank = True , null = True, default = True)
     accepted = models.BooleanField(blank = True, null = True, default = False )
+    accepted_by = models.CharField(max_length = 200 , blank = True , null = True)
     created = models.DateTimeField(auto_now_add = True)
-
+    
     def __str__(self):
         return self.purpose_for_exeat
     
