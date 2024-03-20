@@ -22,6 +22,9 @@ export const Home = () => {
       if(!authdetails.is_admin){
            navigate('/student/exeathistory')
       }
+      else{
+         navigate("/admin/pendingExeats")
+      }
     }
    
     return (
@@ -133,7 +136,7 @@ export const Home = () => {
                          
                       </div>
 
-                      <div className="bg-[#83D0FC] text-[17px] max-[300px]:text-[14px] py-11 px-7  flex justify-center rounded-[30px] relative shadow-sm shadow-black hover:-translate-y-2 hover:shadow-md">
+                      <div className="bg-[#83D0FC] text-[17px] max-[300px]:text-[14px] py-11 px-7  flex justify-center rounded-[30px] relative shadow-sm shadow-black hover:-translate-y-2 hover:shadow-md" onClick={handleSecondclick}>
                       <div className="text-center w-[60%] flex items-center justify-center">
                          <h1>View Pending Exeat</h1>
                          </div>
@@ -142,7 +145,7 @@ export const Home = () => {
                         </div>
                       </div>
 
-                      <div className="bg-[#83D0FC] text-[17px] max-[300px]:text-[14px]  py-11 px-7  flex justify-center rounded-[30px] relative shadow-sm shadow-black hover:-translate-y-2 hover:shadow-md" onClick={handleSecondclick}>
+                      <div className="bg-[#83D0FC] text-[17px] max-[300px]:text-[14px]  py-11 px-7  flex justify-center rounded-[30px] relative shadow-sm shadow-black hover:-translate-y-2 hover:shadow-md">
                          <div className="text-center w-[80%] flex items-center justify-center">
                          <h1>View Overall Exeat History</h1>
                          </div>

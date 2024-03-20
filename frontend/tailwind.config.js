@@ -9,6 +9,9 @@ module.exports = {
        fontFamily : {
         sans: ['Inter', 'Open Sans', 'Salsa', 'sans-serif'],
        },
+       colors: {
+        'custom-rgba': 'rgba(52, 52, 59, 0.7)',
+      },
        animation :{
         fadein : 'fadein 3s ease-in-out',
         slidein : 'slidein 2s ease-in-out',

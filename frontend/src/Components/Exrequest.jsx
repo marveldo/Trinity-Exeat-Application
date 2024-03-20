@@ -3,6 +3,7 @@ import loaderlogo from "../images/Ellipse 31.png"
 import { useSelector } from "react-redux";
 import { useAxios } from "../utils/axiosinstance";
 import { useNavigate } from "react-router-dom";
+import img from "../images/icons8-left-arrow-32 1.png"
 
 export const Mainrequest = () => {
     //states
@@ -244,9 +245,11 @@ export const Mainrequest = () => {
   </svg>
     
    return (
-        <div className="h-[100vh]">
+        <div className="h-[100vh] relative">
+         
        
-            <div className="w-[100%] flex justify-center">
+            <div className="w-[100%] flex justify-center relative">
+            <img src={img} alt="go back" className="absolute left-6 top-3 hover:translate-y-[-10px]" onClick={()=>{navigate('/home')}}/>
             <div className="relative py-3 w-[70%] text-center">
                 <h1 className="text-[28px] mb-6">
                     Exeat Request Form

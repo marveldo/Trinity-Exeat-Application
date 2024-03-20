@@ -1,21 +1,17 @@
 from django.shortcuts import render
 from rest_framework.response import Response
-from rest_framework.generics import GenericAPIView,CreateAPIView
-from .serializers import Userserializer,CreateExeatSerializer
+from rest_framework.generics import ListAPIView,CreateAPIView
+from .serializers import Userserializer,CreateExeatSerializer,MyTokenObtainPairSerializer,ExeatSerializer
 from .models import Users,ExeatRequest
 from rest_framework.renderers import JSONRenderer
-from rest_framework_simplejwt.views import TokenObtainPairView
-from .serializers import MyTokenObtainPairSerializer
+from rest_framework_simplejwt.views import TokenObtainPairView 
 from rest_framework import status
 from .permission import CustomAdminpermission
 from rest_framework.permissions import IsAuthenticated
 
 
-# Create your views here.
-
 class UserLogin(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
-
 class RegisterUser(CreateAPIView):
     queryset = Users.objects.all()
     serializer_class = Userserializer
@@ -32,7 +28,6 @@ class RegisterUser(CreateAPIView):
                 "data": serializer.data
             }
             return Response(res)
-
 class CreateExeatRequestView(CreateAPIView):
     queryset = ExeatRequest.objects.all()
     serializer_class = CreateExeatSerializer
@@ -69,6 +64,29 @@ class CreateExeatRequestView(CreateAPIView):
         user.course_of_study = request_made.course_of_study
         user.hall = request_made.hall
         user.save()
+class ListExeatsHistory(ListAPIView):
+    serializer_class = ExeatSerializer
+    permission_classes = [IsAuthenticated]
+    def get_queryset(self,request):
+        queryset = ExeatRequest.objects.filter(user = request.user, pending = False, accepted = True)
+        if request.GET.get('date') :
+            try:
+               queryset = ExeatRequest.objects.filter(user = request.user , pending = False, accepted = True , created__date = request.GET.get('date'))
+            except :
+                queryset = ExeatRequest.objects.filter(user = request.user, pending = False, accepted = True)
+                return queryset
+        return queryset
+      
+    def list(self, request, *args, **kwargs):
+        queryset = self.get_queryset(request=request)
+        serializer = self.get_serializer(queryset, many=True)
+        res = {
+            'status': 'ok',
+            'data': serializer.data
+        }
+        return Response(res)
+    
+    
               
 
 

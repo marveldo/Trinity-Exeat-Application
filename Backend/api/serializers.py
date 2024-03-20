@@ -29,11 +29,16 @@ class Userserializer(serializers.ModelSerializer):
         user.save()
         return user
 
-    
 class CreateExeatSerializer(serializers.ModelSerializer):
     class Meta :
         model = ExeatRequest
         exclude = ['pending', 'accepted', 'user']
+
+class ExeatSerializer(serializers.ModelSerializer):
+    class Meta :
+        model = ExeatRequest
+        fields = ['id','days','created','hall','accepted_by','purpose_for_exeat']
+
     
 
 

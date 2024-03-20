@@ -35,6 +35,9 @@ body{
     .bar img {
         width: 30px;
     }
+    .search img {
+        width:25px;
+    }
     .newasa{
         padding-top: 1.5rem/* 40px */;
         padding-bottom: 1.5rem/* 40px */;
@@ -49,11 +52,15 @@ body{
     .resbluepic{
         width:152px;
         height: 140px;
-        
-        
+    }
+    .resinput{
+        height:10px
     }
     .resfont{
         font-size: 15px;
+    }
+    .smallresfont{
+        font-size: 8px;
     }
     .landresdiv{
         width :50%;
