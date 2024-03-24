@@ -109,15 +109,7 @@ export const Home = () => {
                             
                          </div>
 
-                         <div className="bg-[#83D0FC] text-[17px] max-[300px]:text-[14px]  py-11 px-7  flex justify-center rounded-[30px] relative shadow-sm shadow-black hover:-translate-y-2 hover:shadow-md">
-                         <div className="text-center w-[60%] flex items-center justify-center">
-                            <h1>Search Exeat Report</h1>
-                            </div>
-                            <div className="absolute bottom-0 right-0 bg-white rounded-full">
-                           <img src={leftarrow} alt="arrow" className="max-[300px]:w-[30px]"/>
-                           </div>
-                            
-                         </div>
+                       
                         
                      
                      
@@ -167,15 +159,7 @@ export const Home = () => {
                          
                       </div>
 
-                      <div className="bg-[#83D0FC] text-[17px] max-[300px]:text-[14px]  py-11 px-7  flex justify-center rounded-[30px] relative shadow-sm shadow-black hover:-translate-y-2 hover:shadow-md">
-                      <div className="text-center w-[60%] flex items-center justify-center">
-                         <h1>Search Exeat Report</h1>
-                         </div>
-                         <div className="absolute bottom-0 right-0 bg-white rounded-full">
-                        <img src={leftarrow} alt="arrow" className="max-[300px]:w-[30px]"/>
-                        </div>
-                         
-                      </div>
+                      
                      
                   
                   

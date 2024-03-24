@@ -89,6 +89,7 @@ class ExeatRequest(models.Model) :
     pending = models.BooleanField(blank = True , null = True, default = True)
     accepted = models.BooleanField(blank = True, null = True, default = False )
     accepted_by = models.CharField(max_length = 200 , blank = True , null = True)
+    date_accepted = models.DateField(blank = True , null = True)
     created = models.DateTimeField(auto_now_add = True)
     
     def __str__(self):

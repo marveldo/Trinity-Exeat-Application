@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from .models import Users,ExeatRequest
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-
+import datetime
     
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
@@ -38,6 +38,24 @@ class ExeatSerializer(serializers.ModelSerializer):
     class Meta :
         model = ExeatRequest
         fields = ['id','days','created','hall','accepted_by','purpose_for_exeat']
+
+class FullExeatSerailizer(serializers.ModelSerializer):
+    class Meta :
+        model = ExeatRequest
+        exclude = ['user']
+
+class UpdateExeatSerializer(serializers.ModelSerializer):
+    class Meta :
+        model = ExeatRequest
+        fields = ['pending', 'accepted', 'accepted_by']
+
+    def update(self, instance, validated_data):
+        exeat = super().update(instance, validated_data)
+        exeat.date_accepted = datetime.date.today()
+        exeat.save()
+        return exeat
+
+
 
     
 

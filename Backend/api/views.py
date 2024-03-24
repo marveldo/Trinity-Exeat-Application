@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from rest_framework.response import Response
-from rest_framework.generics import ListAPIView,CreateAPIView
-from .serializers import Userserializer,CreateExeatSerializer,MyTokenObtainPairSerializer,ExeatSerializer
+from rest_framework.generics import ListAPIView,CreateAPIView,GenericAPIView,UpdateAPIView
+from rest_framework.mixins import ListModelMixin
+from .serializers import Userserializer,CreateExeatSerializer,MyTokenObtainPairSerializer,ExeatSerializer,FullExeatSerailizer,UpdateExeatSerializer
 from .models import Users,ExeatRequest
 from rest_framework.renderers import JSONRenderer
 from rest_framework_simplejwt.views import TokenObtainPairView 
@@ -85,6 +86,59 @@ class ListExeatsHistory(ListAPIView):
             'data': serializer.data
         }
         return Response(res)
+    
+class GetpendingExeats( ListModelMixin, GenericAPIView):
+    serializer_class = FullExeatSerailizer
+    permission_classes = [CustomAdminpermission]
+
+    def get_queryset(self):
+        queryset = ExeatRequest.objects.filter(pending = True)
+        
+        if self.request.GET.get('search'):
+            queryset = ExeatRequest.objects.filter(pending = True, fullname__icontains = self.request.GET.get('search'))
+        return queryset
+    def get(self,request,*args, **kwargs):
+        return self.list(request, *args, **kwargs)
+    
+        
+    def list(self, request, *args, **kwargs):
+        exeats = self.get_queryset()
+        serializer = self.get_serializer(exeats, many = True)
+        count = exeats.count()
+        res = {
+            'status' : 'ok',
+            'count' : count,
+            'data' : serializer.data
+        }
+        return Response(res)
+    
+class UpdateExeatsInfo(UpdateAPIView):
+    queryset = ExeatRequest.objects.all()
+    serializer_class = UpdateExeatSerializer
+    permission_classes = [CustomAdminpermission]
+
+    def update(self, request, *args, **kwargs):
+        exeat = self.get_object()
+        serializer = self.get_serializer(exeat , data = request.data , partial = True)
+        if serializer.is_valid(raise_exception = True):
+            self.perform_update(serializer)
+            res = {
+                'status' : 'ok',
+                'data' : serializer.data,
+
+            }
+            return Response(res)
+
+
+
+        
+
+        
+
+
+  
+
+
     
     
               
