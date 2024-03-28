@@ -46,11 +46,11 @@ class Level (models.IntegerChoices):
      FIVE_HUNDRED = '500' 
 
 class Hostels (models.TextChoices):
-    MARY_HALL = 'mary_hall'
-    DEBORAH_HALL = 'deborah_hall'
-    ESTHER_HALL = 'esther_hall'
-    DANIEL_HALL = 'daniel_hall'
-    JOSEPH_HALL = 'joseph_hall'
+    MARY_HALL = 'Mary'
+    DEBORAH_HALL = 'Deborah'
+    ESTHER_HALL = 'Esther'
+    DANIEL_HALL = 'Daniel'
+    JOSEPH_HALL = 'Joseph'
        
 
 class Users(AbstractBaseUser,PermissionsMixin):

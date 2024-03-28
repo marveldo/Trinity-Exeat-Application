@@ -132,7 +132,7 @@ export const Login = () => {
 
    const Submitform = (event) => {
       event.preventDefault();
-     if (loginstate.matric_no.length != 10){
+     if (loginstate.matric_no.length !== 10){
          setLoginerror(prev => {
             return({
                ...prev,

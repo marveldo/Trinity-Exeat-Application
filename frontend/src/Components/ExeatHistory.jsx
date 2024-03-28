@@ -114,7 +114,7 @@ if(error){
            <div className="hover:translate-y-[-10px] absolute left-6 top-3  "  onClick={Arrowclicked}>
          <img src={img} alt="go back"/>
          </div>
-              <h1 className="sm:text-[35px] resfont">Exeat History</h1>
+              <h1 className="sm:text-[35px] resfont">EXEAT HISTORY</h1>
               <div className={`bg-[#83D0FC] ${search ? 'max-[450px]:w-[110px]' : ''}  flex rounded-[30px] absolute right-5  sm:py-3 sm:px-2 py-1 `}>
                  <input name="search" placeholder="YYYY-MM-DD" className={`sm:w-[100%] w-[75%] max-[450px]:text-[9px] bg-[#83D0FC] focus:outline-none ${search ? '' : 'hidden' }  focus:border-sky-500 focus:ring-sky-500  rounded-[30px] animate-increasewidth`} onChange={Searchchange} disabled={searchdisabled}/>
                  <div className="flex justify-end search" onClick={Searchactive}><img src={icon} alt="search" className="w-[35px]"/></div>

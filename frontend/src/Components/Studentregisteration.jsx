@@ -1,4 +1,3 @@
-import arrow from "../images/icons8-left-arrow-32 1.png"
 import logo from "../images/Ellipse 2.png"
 import React from "react"
 import { useNavigate } from "react-router-dom"
@@ -140,7 +139,7 @@ export const Studentregister = () =>{
    const SubmitForm = (event) => {
       event.preventDefault()
       const { matric_no } = formstate
-      if (matric_no.length != 10){
+      if (matric_no.length !== 10){
          setregistererror(prev => {
             return({
                ...prev,

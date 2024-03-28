@@ -12,6 +12,7 @@ import { Studentregister } from "./Components/Studentregisteration";
 import { ExeatHistory } from "./Components/ExeatHistory";
 import { Mainrequest } from "./Components/Exrequest";
 import { PendingExeats } from "./Components/PendingStudentsExeat";
+import { StudentsExeatrequest } from "./Components/Studentspendingexeat";
 
 export const App = () =>{
    const isvalid = JSON.parse(localStorage.getItem('auttokens'))
@@ -36,6 +37,7 @@ export const App = () =>{
         <Route path='create/student' element={<ISAdmin><Studentregister/></ISAdmin>}/>
         <Route path="student/exeathistory" element={<ISNotAdmin><ExeatHistory/></ISNotAdmin>}/>
         <Route path="admin/pendingExeats" element ={<ISAdmin><PendingExeats/></ISAdmin>}/>
+        <Route path="students/pendingExeats" element={<ISNotAdmin><StudentsExeatrequest/></ISNotAdmin>}/>
         <Route path="*" element={<Navigate to="/" replace/>}/>
 
       </Routes>

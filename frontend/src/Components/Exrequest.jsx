@@ -131,6 +131,7 @@ export const Mainrequest = () => {
                 
             }
          )
+        
          setsubmiterror(prev => {
             return({
                 ...prev ,
@@ -146,7 +147,7 @@ export const Mainrequest = () => {
         if (response.data.code === 201){
             setSuccess(true)
             const timeoutid = setTimeout(()=>{
-                navigate('/home',{replace: true})
+                navigate('/students/pendingExeats',{replace: true})
                 return () => clearTimeout(timeoutid)
             },1000)
         }
@@ -200,7 +201,7 @@ export const Mainrequest = () => {
         
     }
     const SubmitExeatrequest = async() => {
-        if (exeatform.guardians_phonenumber === '' || exeatform.purpose_for_exeat === '' || exeatform.days === ''||  exeatform.destination === ''){
+        if (exeatform.guardians_phonenumber === '' || exeatform.purpose_for_exeat === '' || exeatform.days === ''||  exeatform.destination === '' || exeatform.days < 0){
             if(exeatform.guardians_phonenumber === '' ){
                 setsubmiterror(prev => {
                     return({
@@ -234,6 +235,14 @@ export const Mainrequest = () => {
                     })
                 })
              }
+            if(exeatform.days < 1){ 
+                setsubmiterror(prev => {
+                    return ({
+                        ...prev,
+                        days : true
+                    })
+                })
+            }
         }
         else{
             Submitted()
@@ -317,11 +326,11 @@ export const Mainrequest = () => {
                            <svg className={`h-11 w-11 text-red-500 absolute top-2 right-[24%] min-[530px]:right-[20%] ${submiterror.level ? '' : 'hidden'}`}  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round">  <circle cx="12" cy="12" r="10" />  <line x1="15" y1="9" x2="9" y2="15" />  <line x1="9" y1="9" x2="15" y2="15" /></svg>
                            <select name="hall" value={exeatform.hall}  className={`${submiterror.hall ? 'bg-red-400': 'bg-[#AFDEF8]'} mt-1 px-3 py-2 h-[53px]  border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-[70%] rounded-lg sm:text-sm focus:ring-1`} onChange={Handleformchange}>
                                  <option value=''>Your Hall</option>
-                                 <option value='mary_hall'>Mary</option>
-                                 <option value='joseph_hall'>Joseph</option>
-                                 <option value='daniel_hall'>Daniel</option>
-                                 <option value='esther_hall'>Esther</option>
-                                 <option value='deborah_hall'>Deborah</option>
+                                 <option value='Mary'>Mary</option>
+                                 <option value='Joseph'>Joseph</option>
+                                 <option value='Daniel'>Daniel</option>
+                                 <option value='Esther'>Esther</option>
+                                 <option value='Deborah'>Deborah</option>
                                
                            </select>
                            <div className="absolute right-[-15%] top-[-60%] bg-[#83D0FC] rounded-[50%] min-[620px]:h-[25px] min-[620px]:w-[30px] w-[25px] h-[20px] mt-2"></div>

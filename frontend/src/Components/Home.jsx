@@ -26,6 +26,11 @@ export const Home = () => {
          navigate("/admin/pendingExeats")
       }
     }
+    const handleThirdclick = () => {
+      if(!authdetails.is_admin){
+         navigate("/students/pendingExeats")
+      }
+    }
    
     return (
         <div className="bg-[#83D0FC] h-[100vh] p-11  pt-10">
@@ -86,7 +91,7 @@ export const Home = () => {
                            </div>
                          </div>
 
-                         <div className="bg-[#83D0FC] text-[17px] max-[300px]:text-[14px]  py-11 px-7  flex justify-center rounded-[30px] relative shadow-sm shadow-black hover:-translate-y-2 hover:shadow-md">
+                         <div className="bg-[#83D0FC] text-[17px] max-[300px]:text-[14px]  py-11 px-7  flex justify-center rounded-[30px] relative shadow-sm shadow-black hover:-translate-y-2 hover:shadow-md" onClick={handleThirdclick}>
                             <div className="text-center w-[80%] flex items-center justify-center">
                             <h1>Track Pending Exeat request</h1>
                             </div>
@@ -137,7 +142,7 @@ export const Home = () => {
                         </div>
                       </div>
 
-                      <div className="bg-[#83D0FC] text-[17px] max-[300px]:text-[14px]  py-11 px-7  flex justify-center rounded-[30px] relative shadow-sm shadow-black hover:-translate-y-2 hover:shadow-md">
+                      <div className="bg-[#83D0FC] text-[17px] max-[300px]:text-[14px]  py-11 px-7  flex justify-center rounded-[30px] relative shadow-sm shadow-black hover:-translate-y-2 hover:shadow-md" onClick={handleThirdclick}>
                          <div className="text-center w-[80%] flex items-center justify-center">
                          <h1>View Overall Exeat History</h1>
                          </div>

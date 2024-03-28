@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework.response import Response
-from rest_framework.generics import ListAPIView,CreateAPIView,GenericAPIView,UpdateAPIView
+from rest_framework.generics import ListAPIView,CreateAPIView,GenericAPIView,UpdateAPIView,DestroyAPIView
 from rest_framework.mixins import ListModelMixin
-from .serializers import Userserializer,CreateExeatSerializer,MyTokenObtainPairSerializer,ExeatSerializer,FullExeatSerailizer,UpdateExeatSerializer
+from .serializers import Userserializer,CreateExeatSerializer,MyTokenObtainPairSerializer,ExeatSerializer,FullExeatSerailizer,UpdateExeatSerializer,PendingExeatSerializer
 from .models import Users,ExeatRequest
 from rest_framework.renderers import JSONRenderer
 from rest_framework_simplejwt.views import TokenObtainPairView 
@@ -128,6 +128,42 @@ class UpdateExeatsInfo(UpdateAPIView):
 
             }
             return Response(res)
+        
+class UserpendingExeat(GenericAPIView):
+    serializer_class = PendingExeatSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        queryset = ExeatRequest.objects.filter(user = self.request.user , pending = True)
+        return queryset
+        
+    
+    def get(self,request, *args, **kwargs):
+        exeat = self.get_queryset()
+        serializer = self.get_serializer(exeat , many = True)
+        res = {
+            'status': 'success',
+            'data' : serializer.data
+        }
+        return Response(res)
+    
+class DeleteUserExeat(DestroyAPIView):
+    queryset = ExeatRequest.objects.all()
+    serializer_class = PendingExeatSerializer
+    permission_classes = [IsAuthenticated]
+
+
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        self.perform_destroy(instance)
+        res ={
+            'status': 'ok'
+        }
+        return Response(res)
+    
+    
+    
+
 
 
 

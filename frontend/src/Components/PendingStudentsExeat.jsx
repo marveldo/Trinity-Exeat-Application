@@ -53,6 +53,12 @@ export const PendingExeats = () => {
       if (finalsuccess === true){
         setfinalsuccess(false)
       }
+      setupdates(prev => {
+        return ({
+          ...prev ,
+          accepted : false
+        })
+      })
       setSecondApproval(true)
   }
 
@@ -71,7 +77,7 @@ export const PendingExeats = () => {
       Querybackend()
     }
 
-    const Querybackend  = async() => {
+    const Querybackend  = async(searchvalue) => {
       try{
          setloading(true)
          const response = searchvalue ? await instance.get(`/AllpendingExeats?search=${searchvalue}`) : await instance.get('/AllpendingExeats/') 
@@ -136,7 +142,7 @@ export const PendingExeats = () => {
       }
     } 
     React.useEffect(()=> {
-        Querybackend()
+        Querybackend(searchvalue)
     }, [searchvalue])
 
     if(data !== null){
@@ -218,7 +224,7 @@ let loadingicon2 =<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0
 </svg>
     return (
         <div className="h-[100vh] overflow-hidden relative ">
-            <div className={`absolute h-[100vh] bg-custom-rgba w-[100%] ${SecondApproval ? 'flex': 'hidden'} justify-center items-center text-center`}>
+            <div className={`absolute h-[100vh] z-50 bg-custom-rgba w-[100%] ${SecondApproval ? 'flex': 'hidden'} justify-center items-center text-center`}>
                <div className="bg-white p-6">
                   <h1 className={`mb-5 ${finalsuccess ? 'hidden': ''}`}>Are You Sure About This decision ?</h1>
                   <div className={`${finalsuccess ? 'hidden': 'flex'} justify-center mb-1`}>

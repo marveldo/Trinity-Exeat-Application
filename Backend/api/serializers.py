@@ -32,7 +32,7 @@ class Userserializer(serializers.ModelSerializer):
 class CreateExeatSerializer(serializers.ModelSerializer):
     class Meta :
         model = ExeatRequest
-        exclude = ['pending', 'accepted', 'user']
+        exclude = ['pending', 'accepted', 'user','date_accepted','accepted_by']
 
 class ExeatSerializer(serializers.ModelSerializer):
     class Meta :
@@ -54,6 +54,11 @@ class UpdateExeatSerializer(serializers.ModelSerializer):
         exeat.date_accepted = datetime.date.today()
         exeat.save()
         return exeat
+    
+class PendingExeatSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ExeatRequest
+        fields = ['id','days', 'destination','hall','created']
 
 
 

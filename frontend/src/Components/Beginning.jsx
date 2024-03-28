@@ -3,7 +3,6 @@ import "../index.css"
 import logo from "../images/Ellipse 2.png"
 import icon0 from "../images/9055329_bxs_home_icon 1.png"
 import icon1 from "../images/2024644_login_user_avatar_person_users_icon 1.png"
-import icon2 from "../images/296566_file_directory_ordered_order_instructions_icon 1.png"
 import { useNavigate } from "react-router-dom";
 
 export const Beginning = () =>{
