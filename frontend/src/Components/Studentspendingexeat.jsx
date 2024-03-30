@@ -136,15 +136,15 @@ else{
              <p className={`${finalsuccess? 'text-green-400':'hidden'}`}>Cancelled Succesfully</p>
              
 
-               </div>
+               </div> 
             </div>
             <div className="w-full flex justify-center p-10">
             
             <div className="hover:translate-y-[-10px] absolute left-6 top-10  "  onClick={Arrowclicked}>
              <img src={img} alt="go back" className="w-[20px] sm:w-[30px]"/>
             </div>
-                <h1 className="text-[10px] sm:text-[27px] max-[300px]:text-[9px]">YOUR PENDING EXEAT</h1>
-                <button className={`absolute right-6 top-8 p-3 rounded-[15px] ${disabled ?'bg-red-400 cursor-not-allowed' : 'bg-red-500 hover:translate-y-[-10px]'}  text-white text-[8px] max-[300px]:text-[6px] sm:text-[18px] `} onClick={CancelrequestClicked} disabled={disabled}>
+                <h1 className="text-[10px] sm:text-[27px] max-[300px]:text-[9px] resfont">YOUR PENDING EXEAT</h1>
+                <button className={`absolute right-6 top-8 p-3 rounded-[15px] ${disabled ?'bg-red-400 cursor-not-allowed' : 'bg-red-500 hover:translate-y-[-10px]'}  text-white text-[8px] max-[300px]:text-[6px] sm:text-[18px] smallresfont `} onClick={CancelrequestClicked} disabled={disabled}>
                 Cancel request
             </button>
             </div>
