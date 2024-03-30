@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.css"
 import { Beginning } from "./Components/Beginning";
-import { BrowserRouter, Route , Routes } from "react-router-dom";
+import { HashRouter,BrowserRouter, Route , Routes } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import { Login } from "./Components/Login";
 import { Home } from "./Components/Home";
@@ -28,7 +28,7 @@ export const App = () =>{
    }
     
     return(
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Beginning/>}/>
         <Route path="/Login" element={<AllreadyLoggedin><Login/></AllreadyLoggedin>}/>
@@ -42,7 +42,7 @@ export const App = () =>{
 
       </Routes>
     
-    </BrowserRouter>
+    </HashRouter>
        
     )
 }

@@ -14,7 +14,7 @@ const store = configureStore({
     reducer : allreducers
 })
 
-axios.defaults.baseURL = "http://127.0.0.1:8000/"
+axios.defaults.baseURL = "https://trinity-exeat-application.onrender.com/"
 
 root.render(
 <Provider store={store}>

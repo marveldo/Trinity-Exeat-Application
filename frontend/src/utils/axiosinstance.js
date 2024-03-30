@@ -5,7 +5,7 @@ import { jwtDecode } from "jwt-decode";
 import { Logindispatch,Logoutdispatch } from "../reducers/Authreducer/Auth";
 import { useDispatch } from "react-redux";
 
-const Baseurl = 'http://127.0.0.1:8000/api/'
+const Baseurl = 'https://trinity-exeat-application.onrender.com/api/'
 
 
 export const useAxios = () => {
