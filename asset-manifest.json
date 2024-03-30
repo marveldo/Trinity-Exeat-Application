@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Trinity-Exeat-Application/static/css/main.13fbd659.css",
+    "main.js": "/Trinity-Exeat-Application/static/js/main.6fa10767.js",
+    "index.html": "/Trinity-Exeat-Application/index.html",
+    "main.13fbd659.css.map": "/Trinity-Exeat-Application/static/css/main.13fbd659.css.map",
+    "main.6fa10767.js.map": "/Trinity-Exeat-Application/static/js/main.6fa10767.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.13fbd659.css",
+    "static/js/main.6fa10767.js"
+  ]
+}
