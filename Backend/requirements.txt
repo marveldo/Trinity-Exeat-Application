@@ -8,4 +8,5 @@ mysqlclient==2.2.4
 phonenumbers==8.13.31
 sqlparse==0.4.4
 psycopg2==2.9.9
+gunicorn==21.2.0
 
