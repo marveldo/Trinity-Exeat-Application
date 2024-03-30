@@ -7,4 +7,5 @@ djangorestframework-simplejwt==5.3.1
 mysqlclient==2.2.4
 phonenumbers==8.13.31
 sqlparse==0.4.4
+psycopg2==2.9.9
 

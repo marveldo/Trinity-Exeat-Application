@@ -144,17 +144,15 @@ WSGI_APPLICATION = 'Exeatapp.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-
 DATABASES = {
-  'default' : {
-        'ENGINE': 'django.db.backends.mysql',
-       'NAME': 'marvelous90$default',
-       'USER':'marvelous90',
-       'HOST': 'marvelous90.mysql.pythonanywhere-services.com',
-      'PASSWORD': 'Doyin174' ,
-       'PORT':'3306',
-    
-}
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres.kdkeotkfocclukkgqfyc',
+        'PASSWORD': 'Doyinmarvelous17',
+        'HOST': 'aws-0-eu-central-1.pooler.supabase.com',   # Set to the appropriate host if not using a local database
+        'PORT': '5432',        # Default PostgreSQL port
+    }
 }
 
 # Password validation
