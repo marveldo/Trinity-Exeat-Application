@@ -152,7 +152,7 @@ export const Home = () => {
                       </div>
 
                       <div className="bg-red-600 text-[12px] sm:text-[20px] max-[300px]:text-[14px] py-3 px-2 flex justify-center sm:row-start-1 sm:row-end-5 col-span-5 order-last rounded-[30px] relative shadow-md shadow-black  ">
-                      <div className="text-white w-[60%] text-[20px] max-[300px]:text-[14px] overflow-y-auto">
+                      <div className="text-white w-[60%] text-[12px] sm:text-[20px] max-[300px]:text-[14px] overflow-y-auto">
                          <h1 className="mb-4 text-center">Please Note That ;</h1>
                          <ol>
                             <li className="mb-3">1.Always Log out after using the app for good security </li>
