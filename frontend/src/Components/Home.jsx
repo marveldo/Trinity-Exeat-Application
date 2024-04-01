@@ -77,7 +77,7 @@ export const Home = () => {
                             <h1>Exeat Request Form</h1>
                             </div>
                            <div className="absolute bottom-0 right-0 bg-white rounded-full">
-                           <img src={leftarrow} alt="arrow" className="max-[300px]:w-[30px]"/>
+                           <img src={leftarrow} alt="arrow" className="max-[300px]:w-[30px] w-[15px] sm:w-[50px] "/>
                            </div>
                             
                          </div>
@@ -87,7 +87,7 @@ export const Home = () => {
                             <h1>View Exeat History </h1>
                             </div>
                             <div className="absolute bottom-0 right-0 bg-white rounded-full">
-                           <img src={leftarrow} alt="arrow" className="max-[300px]:w-[30px]"/>
+                           <img src={leftarrow} alt="arrow" className="max-[300px]:w-[30px] w-[15px] sm:w-[50px]"/>
                            </div>
                          </div>
 
@@ -96,7 +96,7 @@ export const Home = () => {
                             <h1>Track Pending Exeat request</h1>
                             </div>
                             <div className="absolute bottom-0 right-0 bg-white rounded-full">
-                           <img src={leftarrow} alt="arrow" className="max-[300px]:w-[30px]"/>
+                           <img src={leftarrow} alt="arrow" className="max-[300px]:w-[30px] w-[15px] sm:w-[50px]"/>
                            </div>
                          </div>
 
@@ -128,7 +128,7 @@ export const Home = () => {
                          <h1>Create New Student</h1>
                          </div>
                         <div className="absolute bottom-0 right-0 bg-white rounded-full">
-                        <img src={leftarrow} alt="arrow" className="max-[300px]:w-[30px]"/>
+                        <img src={leftarrow} alt="arrow" className="max-[300px]:w-[30px] w-[15px] sm:w-[50px] "/>
                         </div>
                          
                       </div>
@@ -138,7 +138,7 @@ export const Home = () => {
                          <h1>View Pending Exeat</h1>
                          </div>
                          <div className="absolute bottom-0 right-0 bg-white rounded-full">
-                        <img src={leftarrow} alt="arrow" className="max-[300px]:w-[30px]"/>
+                        <img src={leftarrow} alt="arrow" className="max-[300px]:w-[30px] w-[30px] sm:w-[50px] w-[15px] sm:w-[50px] "/>
                         </div>
                       </div>
 
@@ -147,7 +147,7 @@ export const Home = () => {
                          <h1>View Overall Exeat History</h1>
                          </div>
                          <div className="absolute bottom-0 right-0 bg-white rounded-full">
-                        <img src={leftarrow} alt="arrow" className="max-[300px]:w-[30px]"/>
+                        <img src={leftarrow} alt="arrow" className="max-[300px]:w-[30px] w-[15px] sm:w-[50px]"/>
                         </div>
                       </div>
 
