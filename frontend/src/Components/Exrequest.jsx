@@ -260,7 +260,7 @@ export const Mainrequest = () => {
             <div className="w-[100%] flex justify-center relative">
             <img src={img} alt="go back" className="absolute left-6 top-3 hover:translate-y-[-10px]" onClick={()=>{navigate('/home')}}/>
             <div className="relative py-3 w-[70%] text-center">
-                <h1 className="text-[28px] mb-6">
+                <h1 className="sm:text-[28px]  mb-6">
                     Exeat Request Form
                 </h1>
                 <div className="relative w-[100%] bg-[#EBF0F6]">
@@ -283,7 +283,7 @@ export const Mainrequest = () => {
                            <input name="fullname" defaultValue={exeatform.fullname} className="bg-[#AFDEF8] mt-1 px-3 py-2 h-[53px]  border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-[100%] rounded-lg sm:text-sm focus:ring-1" disabled/>
                            <div className="absolute right-[-15%] top-[-60%] bg-[#83D0FC] rounded-[50%] min-[620px]:h-[25px] min-[620px]:w-[30px] w-[25px] h-[20px] mt-2"></div>
                         </div>
-                        <div className="mt-2 mb-11 relative">
+                        <div className="mt-2 text-[13px] sm:text-[20px] mb-11 relative">
                            <p>Input Full name</p>
                         </div>
 
@@ -292,11 +292,11 @@ export const Mainrequest = () => {
                            <input name="matric_no" defaultValue={exeatform.matric_no} className="bg-[#AFDEF8] mt-1 px-3 py-2 h-[53px]  border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-[100%] rounded-lg sm:text-sm focus:ring-1" disabled/>
                            <div className="absolute right-[-15%] top-[-60%] bg-[#83D0FC] rounded-[50%] min-[620px]:h-[25px] min-[620px]:w-[30px] w-[25px] h-[20px] mt-2"></div>
                         </div>
-                        <div className="mt-2 mb-11 relative">
+                        <div className="mt-2 text-[13px] sm:text-[20px] mb-11 relative">
                            <p>Input Matric Number</p>
                         </div>
 
-                        <div className="relative py-3">
+                        <div className="relative py-3 text-[13px] sm:text-[20px]">
                             <button className="bg-[#23B0FF] rounded-lg py-3 px-7 hover:-translate-y-3" onClick={Changefirstdiv} >Next</button>
                             <div className="absolute right-[-15%] top-[-60%] bg-[#83D0FC] rounded-[50%] min-[620px]:h-[25px] min-[620px]:w-[30px] w-[25px] h-[20px] mt-2"></div>
                         </div>
@@ -318,7 +318,7 @@ export const Mainrequest = () => {
                         </div>
                         <div className="mt-2 mb-11 relative">
                             
-                           <p className={`${submiterror.level ? 'text-red-400' : ''}`}>{submiterror.level ? 'Level cannot be empty' : 'Input Level'}</p>
+                           <p className={` text-[13px] sm:text-[20px] ${submiterror.level ? 'text-red-400' : ''}`}>{submiterror.level ? 'Level cannot be empty' : 'Input Level'}</p>
                         </div>
 
                         <div className="relative flex justify-center">
@@ -337,7 +337,7 @@ export const Mainrequest = () => {
                         </div>
                         <div className="mt-2 mb-11 relative">
                             
-                           <p className={`${submiterror.hall ? 'text-red-400' : ''}`}>{submiterror.level ? 'Hall cannot be empty' : 'Input Hall of residence'}</p>
+                           <p className={` text-[13px] sm:text-[20px] ${submiterror.hall ? 'text-red-400' : ''}`}>{submiterror.level ? 'Hall cannot be empty' : 'Input Hall of residence'}</p>
                         </div>
 
                         <div className="relative py-3">
@@ -347,11 +347,11 @@ export const Mainrequest = () => {
                            <div className="absolute right-[-15%] top-[-60%] bg-[#83D0FC] rounded-[50%] min-[620px]:h-[25px] min-[620px]:w-[30px] w-[25px] h-[20px] mt-2"></div>
                         </div>
                         <div className="mt-2 mb-11 relative">
-                        <p className={`${submiterror.course_of_study ? 'text-red-400' : ''}`}>{submiterror.course_of_study ? 'Couse of study cannot be empty' : 'Input Course of study'}</p>
+                        <p className={` text-[13px] sm:text-[20px] ${submiterror.course_of_study ? 'text-red-400' : ''}`}>{submiterror.course_of_study ? 'Couse of study cannot be empty' : 'Input Course of study'}</p>
                         </div>
 
                         <div className="relative py-3">
-                            <button className="bg-[#23B0FF] rounded-lg py-3 px-7 hover:-translate-y-3" onClick={Changeseconddiv}>Next</button>
+                            <button className="bg-[#23B0FF] text-[13px] sm:text-[20px] rounded-lg py-3 px-7 hover:-translate-y-3" onClick={Changeseconddiv}>Next</button>
                             <div className="absolute right-[-15%] top-[-60%] bg-[#83D0FC] rounded-[50%] min-[620px]:h-[25px] min-[620px]:w-[30px] w-[25px] h-[20px] mt-2"></div>
                         </div>
                     </div>
@@ -364,7 +364,7 @@ export const Mainrequest = () => {
                            <div className="absolute right-[-15%] top-[-60%] bg-[#83D0FC] rounded-[50%] min-[620px]:h-[25px] min-[620px]:w-[30px] w-[25px] h-[20px] mt-2"></div>
                         </div>
                         <div className="mt-1 mb-6 relative">
-                        <p className={`${submiterror.guardians_phonenumber ? 'text-red-400' : ''}`}>{submiterror.guardians_phonenumber? errordetails : 'Input parents/guardians phone number'}</p>
+                        <p className={` text-[13px] sm:text-[20px] ${submiterror.guardians_phonenumber ? 'text-red-400' : ''}`}>{submiterror.guardians_phonenumber? errordetails : 'Input parents/guardians phone number'}</p>
                         </div>
 
                         <div className="relative  flex justify-center">
@@ -374,7 +374,7 @@ export const Mainrequest = () => {
                         </div>
                         <div className="mt-2 mb-6 relative">
                            
-                           <p className={`${submiterror.destination ? 'text-red-400' : ''}`}>{submiterror.destination ? 'A destiantion is needed' : 'Input Destination'}</p>
+                           <p className={` text-[13px] sm:text-[20px] ${submiterror.destination ? 'text-red-400' : ''}`}>{submiterror.destination ? 'A destiantion is needed' : 'Input Destination'}</p>
                         </div>
 
                         <div className="relative  flex justify-center">
@@ -384,7 +384,7 @@ export const Mainrequest = () => {
                            <div className="absolute right-[-15%] top-[-30%] bg-[#83D0FC] rounded-[50%] min-[620px]:h-[25px] min-[620px]:w-[30px] w-[25px] h-[20px] mt-2"></div>
                         </div>
                         <div className="mt-2 mb-6 relative">
-                        <p className={`${submiterror.purpose_for_exeat ? 'text-red-400' : ''}`}>{submiterror.purpose_for_exeat ? 'A purpose is needed' : 'Input purpose for exeat'}</p>
+                        <p className={` text-[13px] sm:text-[20px] ${submiterror.purpose_for_exeat ? 'text-red-400' : ''}`}>{submiterror.purpose_for_exeat ? 'A purpose is needed' : 'Input purpose for exeat'}</p>
                         </div>
 
 
@@ -395,7 +395,7 @@ export const Mainrequest = () => {
                         </div>
                         <div className="mt-2 mb-6 relative">
                            
-                           <p className={`${submiterror.days ? 'text-red-400' : ''}`}>{submiterror.days ? 'No of days needed' : 'Input Number of days of exeat'}</p>
+                           <p className={` text-[13px] sm:text-[20px] ${submiterror.days ? 'text-red-400' : ''}`}>{submiterror.days ? 'No of days needed' : 'Input Number of days of exeat'}</p>
                         </div>
 
                         <div className="relative ">
