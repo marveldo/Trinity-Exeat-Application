@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Trinity-Exeat-Application/static/css/main.87339742.css",
-    "main.js": "/Trinity-Exeat-Application/static/js/main.6fa10767.js",
+    "main.css": "/Trinity-Exeat-Application/static/css/main.69707c78.css",
+    "main.js": "/Trinity-Exeat-Application/static/js/main.cb425711.js",
     "index.html": "/Trinity-Exeat-Application/index.html",
-    "main.87339742.css.map": "/Trinity-Exeat-Application/static/css/main.87339742.css.map",
-    "main.6fa10767.js.map": "/Trinity-Exeat-Application/static/js/main.6fa10767.js.map"
+    "main.69707c78.css.map": "/Trinity-Exeat-Application/static/css/main.69707c78.css.map",
+    "main.cb425711.js.map": "/Trinity-Exeat-Application/static/js/main.cb425711.js.map"
   },
   "entrypoints": [
-    "static/css/main.87339742.css",
-    "static/js/main.6fa10767.js"
+    "static/css/main.69707c78.css",
+    "static/js/main.cb425711.js"
   ]
 }
