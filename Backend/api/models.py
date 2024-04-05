@@ -2,6 +2,7 @@ from django.db import models
 
 from django.contrib.auth.models import AbstractBaseUser,PermissionsMixin
 # Create your models here.
+from decimal import Decimal
 from django.contrib.auth.base_user import BaseUserManager
 from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
@@ -18,7 +19,8 @@ class CustomUserManager(BaseUserManager):
             int(matric_no)
         except : 
             raise ValueError('MatricNumber doesnt posssess letters')
-        user = self.model(matric_no = matric_no, **extra_fields)
+        decmatric_no = Decimal(matric_no)
+        user = self.model(matric_no = decmatric_no, **extra_fields)
         user.set_password(password)
         user.save()
         return user
