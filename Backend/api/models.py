@@ -19,8 +19,8 @@ class CustomUserManager(BaseUserManager):
             int(matric_no)
         except : 
             raise ValueError('MatricNumber doesnt posssess letters')
-        decmatric_no = Decimal(matric_no)
-        user = self.model(matric_no = decmatric_no, **extra_fields)
+        
+        user = self.model(matric_no = matric_no, **extra_fields)
         user.set_password(password)
         user.save()
         return user
@@ -57,7 +57,7 @@ class Hostels (models.TextChoices):
 
 class Users(AbstractBaseUser,PermissionsMixin):
     fullname = models.CharField(max_length = 120, blank = True , null = True)
-    matric_no = models.IntegerField(unique = True , blank= True, null=True)
+    matric_no = models.CharField(unique = True , blank= True, null=True)
     level = models.IntegerField(blank = True , null = True , choices = Level.choices)
     course_of_study = models.CharField(max_length = 200, blank = True , null = True)
     hall = models.CharField(max_length = 120 , blank=True , null = True, choices = Hostels.choices )
