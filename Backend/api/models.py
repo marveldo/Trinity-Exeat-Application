@@ -52,7 +52,7 @@ class Hostels (models.TextChoices):
 
 class Users(AbstractBaseUser,PermissionsMixin):
     fullname = models.CharField(max_length = 120, blank = True , null = True)
-    matric_no = models.CharField(unique = True , blank= True, null=True)
+    matric_no = models.CharField(unique = True , max_length=300, blank= True, null=True)
     level = models.IntegerField(blank = True , null = True , choices = Level.choices)
     course_of_study = models.CharField(max_length = 200, blank = True , null = True)
     hall = models.CharField(max_length = 120 , blank=True , null = True, choices = Hostels.choices )
@@ -75,7 +75,7 @@ class ExeatRequest(models.Model) :
     
     user = models.ForeignKey(Users, blank = True, null =True , on_delete = models.CASCADE)
     fullname =  fullname = models.CharField(max_length = 120, blank = True , null = True)
-    matric_no = models.CharField(blank= True, null=True)
+    matric_no = models.CharField(blank= True, max_length=300, null=True)
     level = models.IntegerField(blank = True , null = True , choices = Level.choices)
     course_of_study = models.CharField(max_length = 200, blank = True , null = True)
     hall = models.CharField(max_length = 120 , blank=True , null = True, choices = Hostels.choices )
