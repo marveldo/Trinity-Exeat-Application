@@ -12,6 +12,7 @@ from rest_framework.permissions import IsAuthenticated
 
 class UserLogin(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
+    renderer_classes = [JSONRenderer]
 class RegisterUser(CreateAPIView):
     queryset = Users.objects.all()
     serializer_class = Userserializer
