@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.generics import ListAPIView,CreateAPIView,GenericAPIView,UpdateAPIView,DestroyAPIView
 from rest_framework.mixins import ListModelMixin
@@ -17,7 +16,7 @@ class RegisterUser(CreateAPIView):
     queryset = Users.objects.all()
     serializer_class = Userserializer
     permission_classes = [CustomAdminpermission]
-    # renderer_classes = [JSONRenderer]
+    renderer_classes = [JSONRenderer]
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data = request.data)
@@ -33,7 +32,7 @@ class CreateExeatRequestView(CreateAPIView):
     queryset = ExeatRequest.objects.all()
     serializer_class = CreateExeatSerializer
     permission_classes = [IsAuthenticated]
-   
+    renderer_classes = [JSONRenderer]
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data = request.data)
         if serializer.is_valid(raise_exception = True):
@@ -68,6 +67,7 @@ class CreateExeatRequestView(CreateAPIView):
 class ListExeatsHistory(ListAPIView):
     serializer_class = ExeatSerializer
     permission_classes = [IsAuthenticated]
+    renderer_classes = [JSONRenderer]
     def get_queryset(self,request):
         queryset = ExeatRequest.objects.filter(user = request.user, pending = False, accepted = True)
         if request.GET.get('date') :
@@ -90,7 +90,7 @@ class ListExeatsHistory(ListAPIView):
 class GetpendingExeats( ListModelMixin, GenericAPIView):
     serializer_class = FullExeatSerailizer
     permission_classes = [CustomAdminpermission]
-
+    renderer_classes = [JSONRenderer]
     def get_queryset(self):
         queryset = ExeatRequest.objects.filter(pending = True)
         
@@ -116,6 +116,7 @@ class UpdateExeatsInfo(UpdateAPIView):
     queryset = ExeatRequest.objects.all()
     serializer_class = UpdateExeatSerializer
     permission_classes = [CustomAdminpermission]
+    renderer_classes = [JSONRenderer]
 
     def update(self, request, *args, **kwargs):
         exeat = self.get_object()
@@ -132,6 +133,7 @@ class UpdateExeatsInfo(UpdateAPIView):
 class UserpendingExeat(GenericAPIView):
     serializer_class = PendingExeatSerializer
     permission_classes = [IsAuthenticated]
+    renderer_classes = [JSONRenderer]
 
     def get_queryset(self):
         queryset = ExeatRequest.objects.filter(user = self.request.user , pending = True)
@@ -151,6 +153,7 @@ class DeleteUserExeat(DestroyAPIView):
     queryset = ExeatRequest.objects.all()
     serializer_class = PendingExeatSerializer
     permission_classes = [IsAuthenticated]
+    renderer_classes = [JSONRenderer]
 
 
     def destroy(self, request, *args, **kwargs):
