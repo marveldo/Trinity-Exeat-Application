@@ -15,11 +15,6 @@ class CustomUserManager(BaseUserManager):
         
         if not matric_no:
             raise ValueError("The Matric Number must be set")
-        try :
-            int(matric_no)
-        except : 
-            raise ValueError('MatricNumber doesnt posssess letters')
-        
         user = self.model(matric_no = matric_no, **extra_fields)
         user.set_password(password)
         user.save()
