@@ -135,6 +135,13 @@ REST_FRAMEWORK = {
 WSGI_APPLICATION = 'Exeatapp.wsgi.application'
 
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'utibesolomon17@gmail.com'
+EMAIL_HOST_PASSWORD = 'oxmibmebfcqkkmby'
+
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
@@ -144,14 +151,15 @@ WSGI_APPLICATION = 'Exeatapp.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'USER': 'postgres.kdkeotkfocclukkgqfyc',
         'PASSWORD': 'Doyinmarvelous17',
-        'HOST': 'aws-0-eu-central-1.pooler.supabase.com',   # Set to the appropriate host if not using a local database
-        'PORT': '5432',        # Default PostgreSQL port
+        'HOST': 'aws-0-eu-central-1.pooler.supabase.com',  
+        'PORT': '5432',        \
     }
 }
 
