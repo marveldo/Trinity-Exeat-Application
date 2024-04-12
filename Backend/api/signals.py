@@ -17,7 +17,7 @@ def Exeatrequestmade(instance,created,**kwargs):
         try :
             send_mail(
             subject='EXEAT REQUEST MADE',
-            message=f'{exeat.fullname} from {exeat.hall} hostel made a request for an exeat',
+            message=f'{exeat.fullname} from {exeat.hall} hostel made a request for an exeat  head over to https://marveldo.github.io/Trinity-Exeat-Application/#/admin/pendingExeats to check it out',
             from_email= settings.EMAIL_HOST_USER,
             recipient_list=admins_email
             )
