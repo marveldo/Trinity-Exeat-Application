@@ -18,7 +18,7 @@ export const Beginning = () =>{
     React.useEffect(()=>{
        const interval = setInterval(()=>{
         setslider(true)
-       },1000)
+       },500)
       return () => clearInterval(interval)
     },[])
      return(

@@ -13,8 +13,8 @@ module.exports = {
         'custom-rgba': 'rgba(52, 52, 59, 0.7)',
       },
        animation :{
-        fadein : 'fadein 3s ease-in-out',
-        slidein : 'slidein 2s ease-in-out',
+        fadein : 'fadein 0.5s ease-in-out',
+        slidein : 'slidein 0.5s ease-in-out',
         slideout : 'slideout 1s ',
         slideoutslower : 'slideout 2s',
         fastslidein : 'slidein 0.8s ',
