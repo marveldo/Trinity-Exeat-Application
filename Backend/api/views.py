@@ -96,7 +96,7 @@ class GetpendingExeats( ListModelMixin, GenericAPIView):
         queryset = ExeatRequest.objects.filter(pending = True)
         
         if self.request.GET.get('search'):
-            queryset = ExeatRequest.objects.filter(pending = True, fullname__icontains = self.request.GET.get('search'))
+            queryset = ExeatRequest.objects.filter(pending = True, matric_no__icontains = self.request.GET.get('search'))
         return queryset
     def get(self,request,*args, **kwargs):
         return self.list(request, *args, **kwargs)
@@ -164,6 +164,32 @@ class DeleteUserExeat(DestroyAPIView):
             'status': 'ok'
         }
         return Response(res)
+    
+class FullExeatview(ListAPIView):
+    
+    serializer_class = FullExeatSerailizer
+    permission_classes = [CustomAdminpermission]
+    renderer_classes = [JSONRenderer]
+
+    def get_queryset(self):
+        queryset = ExeatRequest.objects.filter(pending = False)
+        if self.request.GET.get('search'):
+            queryset = ExeatRequest.objects.filter(pending = False , matric_no__icontains = self.request.GET.get('search')  )
+        return queryset
+    
+    def list(self, request, *args, **kwargs):
+        exeat = self.get_queryset()
+        serializer = self.get_serializer(exeat, many = True)
+        res = {
+            'status': "success",
+            'data' : serializer.data
+        }
+        return Response(res)
+    
+
+
+
+    
     
     
     

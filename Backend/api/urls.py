@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import RegisterUser,UserLogin,CreateExeatRequestView,ListExeatsHistory,GetpendingExeats,UpdateExeatsInfo,UserpendingExeat,DeleteUserExeat
+from .views import RegisterUser,UserLogin,CreateExeatRequestView,ListExeatsHistory,GetpendingExeats,UpdateExeatsInfo,UserpendingExeat,DeleteUserExeat, FullExeatview
 from rest_framework_simplejwt.views import TokenRefreshView
 urlpatterns = [
     path('register/', RegisterUser.as_view()),
@@ -10,7 +10,8 @@ urlpatterns = [
     path('AllpendingExeats/', GetpendingExeats.as_view()),
     path('update/<str:pk>/', UpdateExeatsInfo.as_view()),
     path('pending/', UserpendingExeat.as_view()),
-    path('delete/<str:pk>/',DeleteUserExeat.as_view())
+    path('delete/<str:pk>/',DeleteUserExeat.as_view()),
+    path('OverallExeat/',FullExeatview.as_view() )
    
     
 ]
