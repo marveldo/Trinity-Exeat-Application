@@ -1,4 +1,5 @@
-import { useSelector } from "react-redux"
+import { useSelector , useDispatch } from "react-redux"
+import { Logoutdispatch } from "../reducers/Authreducer/Auth"
 import logo from "../images/Ellipse 2.png"
 import profile from "../images/icons8-glyph-48 1.png"
 import leftarrow from "../images/icons8-left-arrow-32 3.png"
@@ -9,7 +10,8 @@ import { useNavigate } from "react-router-dom"
 export const Home = () => {
     const authdetails = useSelector(state => state.Authdetails)
     const navigate = useNavigate()
-    
+    const dispatch = useDispatch()
+
     const handlefirstclick = () => {
       if(authdetails.is_admin){
          navigate('/create/student')
@@ -30,6 +32,13 @@ export const Home = () => {
       if(!authdetails.is_admin){
          navigate("/students/pendingExeats")
       }
+      else{
+         navigate('/admin/exeathistory')
+      }
+    }
+    const LogoutClicked = () => {
+      localStorage.removeItem('auttokens')
+      dispatch(Logoutdispatch())
     }
    
     return (
@@ -45,7 +54,7 @@ export const Home = () => {
 
               <div className="w-[100%] flex justify-center py-3 border-b border-b-black ">
                  <div className="flex justify-end w-[90%]">
-                  <p className="max-[300px]:text-[11px]">Welcome {authdetails.fullname}</p>
+                  <p className="max-[365px]:text-[14px]">Welcome {authdetails.fullname}</p>
                   <img src={profile} alt="profile" className="ms-4 w-[30px] max-[300px]:w-[20px]" />
                  </div>
                 
@@ -65,14 +74,14 @@ export const Home = () => {
                     
                     <div className="absolute bottom-3 right-[50%] flex items-center hover:-translate-y-2">
                         <img alt="Right arrow" src={leftarrow2} className="me-3 w-[30px]"/>
-                        <p className="sm:block hidden">Logout</p>
+                        <p className="sm:block hidden" onClick={LogoutClicked}>Logout</p>
                     </div>
 
                   </div>
                   <div className={`sm:w-[75%] animate-slidein    w-[100%] ${authdetails.is_admin ? 'hidden' : 'sm:grid sm:grid-cols-2 sm:grid-rows-4 gap-y-4 sm:gap-x-9 flex flex-col dashboardlanres'}  p-5 h-[99%] overflow-y-auto `}>
                      
                       
-                        <div className="bg-[#83D0FC] text-[12px]  sm:text-[17px] max-[300px]:text-[14px]  py-11 px-7  flex justify-center  row-start-1 row-end-1 rounded-[30px] relative shadow-sm shadow-black hover:-translate-y-2 hover:shadow-md" onClick={handlefirstclick}>
+                        <div className="bg-[#83D0FC] text-[12px]  sm:text-[17px] max-[300px]:text-[10px]  py-11 px-7  flex justify-center  row-start-1 row-end-1 rounded-[30px] relative shadow-sm shadow-black hover:-translate-y-2 hover:shadow-md" onClick={handlefirstclick}>
                         <div className="text-center w-[60%] flex items-center justify-center ">
                             <h1>Exeat Request Form</h1>
                             </div>
@@ -82,7 +91,7 @@ export const Home = () => {
                             
                          </div>
 
-                         <div className="bg-[#83D0FC] text-[12px]  sm:text-[17px] max-[300px]:text-[14px] py-11 px-7  flex justify-center rounded-[30px] relative shadow-sm shadow-black hover:-translate-y-2 hover:shadow-md" onClick={handleSecondclick}>
+                         <div className="bg-[#83D0FC] text-[12px]  sm:text-[17px] max-[300px]:text-[10px] py-11 px-7  flex justify-center rounded-[30px] relative shadow-sm shadow-black hover:-translate-y-2 hover:shadow-md" onClick={handleSecondclick}>
                          <div className="text-center w-[60%] flex items-center justify-center">
                             <h1>View Exeat History </h1>
                             </div>
@@ -91,7 +100,7 @@ export const Home = () => {
                            </div>
                          </div>
 
-                         <div className="bg-[#83D0FC] text-[12px]  sm:text-[17px] max-[300px]:text-[14px]  py-11 px-7  flex justify-center rounded-[30px] relative shadow-sm shadow-black hover:-translate-y-2 hover:shadow-md" onClick={handleThirdclick}>
+                         <div className="bg-[#83D0FC] text-[12px]  sm:text-[17px] max-[300px]:text-[10px]  py-11 px-7  flex justify-center rounded-[30px] relative shadow-sm shadow-black hover:-translate-y-2 hover:shadow-md" onClick={handleThirdclick}>
                             <div className="text-center w-[80%] flex items-center justify-center">
                             <h1>Track Pending Exeat request</h1>
                             </div>
@@ -100,8 +109,8 @@ export const Home = () => {
                            </div>
                          </div>
 
-                         <div className="bg-red-600 sm:text-[17px] max-[300px]:text-[14px] py-3 px-2 flex justify-center sm:row-start-1 sm:row-end-5 col-span-5 order-last rounded-[30px] relative shadow-md shadow-black  ">
-                         <div className="text-white w-[60%] text-[12px] sm:text-[20px] max-[300px]:text-[14px] overflow-y-auto">
+                         <div className="bg-red-600 sm:text-[17px] max-[300px]:text-[10px] py-3 px-2 flex justify-center sm:row-start-1 sm:row-end-5 col-span-5 order-last rounded-[30px] relative shadow-md shadow-black  ">
+                         <div className="text-white w-[60%] text-[12px] sm:text-[20px] max-[300px]:text-[10px] overflow-y-auto">
                             <h1 className="mb-4 text-center">Please Note That ;</h1>
                             <ol>
                                <li className="mb-3">1.You can only apply for exeat twice (2x) a month </li>
@@ -123,7 +132,7 @@ export const Home = () => {
                   <div className={`sm:w-[75%] animate-slidein    w-[100%] ${authdetails.is_admin ? 'sm:grid sm:grid-cols-2 sm:grid-rows-4 gap-y-4 sm:gap-x-9 flex flex-col dashboardlanres' : 'hidden' } p-5 h-[99%] overflow-y-auto `}>
                      
                       
-                     <div className="bg-[#83D0FC] text-[12px] sm:text-[20px] max-[300px]:text-[14px]  py-11 px-7  flex justify-center  row-start-1 row-end-1 rounded-[30px] relative shadow-sm shadow-black hover:-translate-y-2 hover:shadow-md" onClick={handlefirstclick} >
+                     <div className="bg-[#83D0FC] text-[12px] sm:text-[17px] max-[300px]:text-[10px]  py-11 px-7  flex justify-center  row-start-1 row-end-1 rounded-[30px] relative shadow-sm shadow-black hover:-translate-y-2 hover:shadow-md" onClick={handlefirstclick} >
                      <div className="text-center w-[60%] flex items-center justify-center ">
                          <h1>Create New Student</h1>
                          </div>
@@ -133,7 +142,7 @@ export const Home = () => {
                          
                       </div>
 
-                      <div className="bg-[#83D0FC] text-[12px] sm:text-[20px] max-[300px]:text-[14px] py-11 px-7  flex justify-center rounded-[30px] relative shadow-sm shadow-black hover:-translate-y-2 hover:shadow-md" onClick={handleSecondclick}>
+                      <div className="bg-[#83D0FC] text-[12px] sm:text-[17px] max-[300px]:text-[10px] py-11 px-7  flex justify-center rounded-[30px] relative shadow-sm shadow-black hover:-translate-y-2 hover:shadow-md" onClick={handleSecondclick}>
                       <div className="text-center w-[60%] flex items-center justify-center">
                          <h1>View Pending Exeat</h1>
                          </div>
@@ -142,7 +151,7 @@ export const Home = () => {
                         </div>
                       </div>
 
-                      <div className="bg-[#83D0FC] text-[12px] sm:text-[20px] max-[300px]:text-[14px]  py-11 px-7  flex justify-center rounded-[30px] relative shadow-sm shadow-black hover:-translate-y-2 hover:shadow-md" onClick={handleThirdclick}>
+                      <div className="bg-[#83D0FC] text-[12px] sm:text-[17px] max-[300px]:text-[10px]  py-11 px-7  flex justify-center rounded-[30px] relative shadow-sm shadow-black hover:-translate-y-2 hover:shadow-md" onClick={handleThirdclick}>
                          <div className="text-center w-[80%] flex items-center justify-center">
                          <h1>View Overall Exeat History</h1>
                          </div>
@@ -151,8 +160,8 @@ export const Home = () => {
                         </div>
                       </div>
 
-                      <div className="bg-red-600 text-[12px] sm:text-[20px] max-[300px]:text-[14px] py-3 px-2 flex justify-center sm:row-start-1 sm:row-end-5 col-span-5 order-last rounded-[30px] relative shadow-md shadow-black  ">
-                      <div className="text-white w-[60%] text-[12px] sm:text-[20px] max-[300px]:text-[14px] overflow-y-auto">
+                      <div className="bg-red-600 text-[12px] sm:text-[17px] max-[300px]:text-[10px] py-3 px-2 flex justify-center sm:row-start-1 sm:row-end-5 col-span-5 order-last rounded-[30px] relative shadow-md shadow-black  ">
+                      <div className="text-white w-[60%] text-[12px] sm:text-[20px] max-[300px]:text-[10px] overflow-y-auto">
                          <h1 className="mb-4 text-center">Please Note That ;</h1>
                          <ol>
                             <li className="mb-3">1.Always Log out after using the app for good security </li>

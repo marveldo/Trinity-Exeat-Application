@@ -246,7 +246,7 @@ let loadingicon2 =<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0
             <div className="h-[100vh] bg-[#83D0FC] rounded-[25px] ">
                 <div className="w-full flex justify-end px-9 pt-2 items-center relative ">
                 <div className={`bg-white ${search ? 'max-[450px]:w-[110px]' : ''}  flex rounded-[30px] absolute left-2 sm:py-3 sm:px-2 py-1 `}>
-                 <input name="search" placeholder="Full name" className={`sm:w-[100%] w-[75%] max-[450px]:text-[9px] bg-white focus:outline-none ${search ? '' : 'hidden' }  focus:border-sky-500 focus:ring-sky-500  rounded-[30px] animate-increasewidth`} onChange={Searchchange}/>
+                 <input name="search" placeholder="Matric No" className={`sm:w-[100%] w-[75%] max-[450px]:text-[9px] bg-white focus:outline-none ${search ? '' : 'hidden' }  focus:border-sky-500 focus:ring-sky-500  rounded-[30px] animate-increasewidth`} onChange={Searchchange}/>
                  <div className="flex justify-end search" onClick={Searchactive}><img src={icon} alt="search" className="w-[35px]"/></div>
                  
               </div>

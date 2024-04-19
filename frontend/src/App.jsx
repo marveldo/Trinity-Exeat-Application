@@ -13,6 +13,7 @@ import { ExeatHistory } from "./Components/ExeatHistory";
 import { Mainrequest } from "./Components/Exrequest";
 import { PendingExeats } from "./Components/PendingStudentsExeat";
 import { StudentsExeatrequest } from "./Components/Studentspendingexeat";
+import { OverallExeatHistory } from "./Components/OverallExeatHistory";
 
 export const App = () =>{
    const isvalid = JSON.parse(localStorage.getItem('auttokens'))
@@ -38,6 +39,7 @@ export const App = () =>{
         <Route path="student/exeathistory" element={<ISNotAdmin><ExeatHistory/></ISNotAdmin>}/>
         <Route path="admin/pendingExeats" element ={<ISAdmin><PendingExeats/></ISAdmin>}/>
         <Route path="students/pendingExeats" element={<ISNotAdmin><StudentsExeatrequest/></ISNotAdmin>}/>
+        <Route path="admin/exeathistory" element={<ISAdmin><OverallExeatHistory/></ISAdmin>}/>
         <Route path="*" element={<Navigate to="/" replace/>}/>
 
       </Routes>
