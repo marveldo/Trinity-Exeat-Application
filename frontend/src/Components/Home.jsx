@@ -72,9 +72,9 @@ export const Home = () => {
                      </div>
                      </div>
                     
-                    <div className="absolute bottom-3 right-[50%] flex items-center hover:-translate-y-2">
+                    <div className="absolute bottom-3 right-[50%] flex items-center hover:-translate-y-2" onClick={LogoutClicked}>
                         <img alt="Right arrow" src={leftarrow2} className="me-3 w-[30px]"/>
-                        <p className="sm:block hidden" onClick={LogoutClicked}>Logout</p>
+                        <p className="sm:block hidden">Logout</p>
                     </div>
 
                   </div>
