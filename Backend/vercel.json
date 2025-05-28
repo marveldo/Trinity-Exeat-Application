@@ -18,7 +18,7 @@
   ],
   "env": {
     "PYTHON_VERSION": "3.9",
-    "DJANGO_SETTINGS_MODULE": "Backend.settings"
+    "DJANGO_SETTINGS_MODULE": "Exeatapp.settings"
  
   },
   "build": {
