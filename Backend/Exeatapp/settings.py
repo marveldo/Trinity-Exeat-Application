@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-qodv$uxy7r*=xhn7kh5fugj_^df=+$acqh()%9hsyn51zr_gg^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -156,10 +156,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
-        'USER': 'postgres.kdkeotkfocclukkgqfyc',
-        'PASSWORD': 'Doyinmarvelous17',
+        'USER': 'postgres.znervcqytvyhjqwrbkba',
+        'PASSWORD': 'Doyinmarvelous174',
         'HOST': 'aws-0-eu-central-1.pooler.supabase.com',  
-        'PORT': '5432',        
+        'PORT': '6543',        
     }
 }
 

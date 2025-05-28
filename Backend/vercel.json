@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "Exeatapp/wsgi.py",
+      "use": "@vercel/python",
+      "config": {
+        "pythonVersion": "3.9",
+        "maxLambdaSize": "15mb"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "Exeatapp/wsgi.py"
+    }
+  ],
+  "env": {
+    "PYTHON_VERSION": "3.9",
+    "DJANGO_SETTINGS_MODULE": "Backend.settings"
+ 
+  },
+  "build": {
+    "env": {
+      "NODE_VERSION": "18.x"
+             
+    }
+  }
+}
