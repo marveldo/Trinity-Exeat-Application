@@ -14,10 +14,11 @@ const store = configureStore({
     reducer : allreducers
 })
 
-axios.defaults.baseURL = "https://trinity-exeat-application.onrender.com/"
+axios.defaults.baseURL = "https://trinity-exeat-application.vercel.app/"
 
 root.render(
 <Provider store={store}>
     <App/>
 </Provider>
 )
+ 
